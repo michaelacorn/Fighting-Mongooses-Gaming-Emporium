@@ -1,0 +1,65 @@
+body
+{
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+	
+    background: white;
+}
+
+header
+{
+	
+	
+	
+    background: lightcoral;
+}
+
+main
+{
+	display: flex;
+    flex-flow: column nowrap;
+	justify-content: flex-start;
+	align-items: center;
+	
+	padding: 0 50px;
+	
+	
+    background: lightblue;
+}
+
+.game
+{
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: space-between;
+	align-items: center;
+	
+    height: 300px;
+    width: 300px;
+	
+	margin: 25px;
+
+    
+
+    background: lightgreen;
+}
+
+img
+{
+	max-height: 225px;
+}
+
+h1, h2
+{
+	margin: 0px;
+	font-size: 16pt;
+}
+
+@media only screen and (min-width: 768px) {
+	main
+	{
+		background: lightcoral;
+	}
+	
+}
