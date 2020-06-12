@@ -26,6 +26,7 @@ const shelf = document.getElementById('game-container')
 
 for (let i = 0; i < prodArr.length; i++) {
     let unit = document.createElement("div");
+    unit.price = prodArr[i].price;
     let name = document.createElement("h1");
     let description = document.createElement("p");
     let price = document.createElement("p");
@@ -33,10 +34,14 @@ for (let i = 0; i < prodArr.length; i++) {
     let add = document.createElement("button");
 
     add.addEventListener("click", ()=>{
-        if (inCart.length >= 10) {}
-        else {
+        if (inCart.length >= 10) {
+            alert("The cart is limited to 10 items.")
+        } else {
             inCart.push(unit.id);
             console.log(inCart);
+            subtotal += unit.price;
+            let cost = subtotal.toFixed(2);
+            console.log(cost);
         }
     })
 
@@ -57,9 +62,9 @@ for (let i = 0; i < prodArr.length; i++) {
 
 
 
-let subtotal, total;
+let subtotal = 0;
 let inCart = [];
-let salestax = total * 1.06;
+let total = subtotal * 1.06;
 
 
 // psuedo code until later
