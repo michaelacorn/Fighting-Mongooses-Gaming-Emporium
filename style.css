@@ -9,10 +9,82 @@ body
 
 header
 {
+	display: flex;
+	flex-flow: row-reverse nowrap;
+	align-items: flex-start;
+	
+	position: fixed;
+	top: 0;
+	left: 0;
+	
+	height: 100px;
+	width: 100%;
+	
+    background: orange;
+}
+
+#check
+{
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: flex-start;
+	align-items: center;
 	
 	
+	background: khaki;
+	width: 100px;
+	height: 100px;
+}
+
+button
+{
 	
-    background: lightcoral;
+	margin-top: 40px;
+}
+
+#cart
+{
+	display: none;
+	flex-flow: column wrap;
+	justify-content: flex-start;
+	align-items: center;
+	
+	width: auto;
+	
+	position: relative;
+	
+}
+
+.inCart
+{
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: space-between;
+	align-items: center;
+	
+    height: 100px;
+    width: 100px;
+	
+	margin-top: 10px;
+
+    background: lightgreen;
+}
+
+h3, h4
+{
+	margin: 0px;
+	font-size: 10pt;
+}
+
+button:hover + #cart
+{
+	
+	display: flex;
+}
+
+#cart:hover
+{
+	display: flex;
 }
 
 main
@@ -22,6 +94,7 @@ main
 	justify-content: flex-start;
 	align-items: center;
 	
+	margin-top: 100px;
 	padding: 0 50px;
 	
 	
@@ -43,11 +116,6 @@ main
     
 
     background: lightgreen;
-}
-
-img
-{
-	max-height: 225px;
 }
 
 h1, h2
