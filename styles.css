@@ -1,29 +1,8 @@
-body, body*
-{
-    display: flex;
-	
-	/* flex-flow: column nowrap;
-	justify-content: flex-start;
-	align-items: flex-start;
-	align-content: flex-start; height = 385
-	width = 477*/
-	
-    
-	height: 100%;
-    margin: 0px;
-    padding: 0px;
-	
-	box-sizing: border-box;
-}
-
-
-
-
-
 body
 {
-	
-	
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
 	
     background: white;
 }
@@ -38,10 +17,10 @@ header
 
 main
 {
-    flex-flow: row nowrap;
-	justify-content: flex-start;
-	align-items: flex-start;
-	align-content: flex-start;
+	display: flex;
+    flex-flow: row wrap;
+	justify-content: space-around;
+	align-items: flex-end;
 	
 	
 	
@@ -51,45 +30,25 @@ main
 
 .game
 {
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: space-between;
+	align-items: center;
+	
     height: 300px;
     width: 300px;
+	
+	margin: 25px;
 
     
 
     background: lightgreen;
 }
 
-h1, h2
+img
 {
-	margin: 0px;
-	font-size: 16pt;
-    width: 300px;
-
-    
-
-    background: lightgreen;
-}
-
-h1, h2
-{
-	margin: 0px;
-	font-size: 16pt;
-    width: 300px;
-
-    
-
-    background: lightgreen;
-}
-
-h1, h2
-{
-	margin: 0px;
-	font-size: 16pt;
-    width: 300px;
-
-    
-
-    background: lightgreen;
+	max-height: 477px;
+	max-width: 385px;
 }
 
 h1, h2
