@@ -38,7 +38,8 @@ for (let i = 0; i < prodArr.length; i++) {
             alert("The cart is limited to 10 items.")
         } else {
             inCart.push(unit.id);
-            console.log(inCart);
+            let selected = unit.cloneNode(true);
+            cart.appendChild(selected);
             subtotal += unit.price;
             let cost = subtotal.toFixed(2);
             console.log(cost);
@@ -59,6 +60,8 @@ for (let i = 0; i < prodArr.length; i++) {
     unit.appendChild(price);
     unit.appendChild(add);
 }
+
+
 
 
 

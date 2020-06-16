@@ -7,12 +7,19 @@ body
     background: white;
 }
 
-header
-{
-	
-	
-	
+header {
     background: lightcoral;
+
+}
+
+#cart {
+	display: flex;
+	flex-direction: row;
+}
+
+img {
+	height: 30px;
+	width:30px;
 }
 
 main
