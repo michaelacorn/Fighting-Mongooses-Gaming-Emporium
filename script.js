@@ -29,7 +29,7 @@ for (let i = 0; i < prodArr.length; i++) {
     unit.price = prodArr[i].price;
     let name = document.createElement("h1");
     let description = document.createElement("p");
-    let price = document.createElement("p");
+    let price = document.createElement("h4");
     let art = document.createElement("img");
     let add = document.createElement("button");
 
@@ -37,16 +37,17 @@ for (let i = 0; i < prodArr.length; i++) {
         if (inCart.length >= 10) {
             alert("The cart is limited to 10 items.")
         } else {
-            inCart.push(unit.id);
             let selected = unit.cloneNode(true);
+            inCart.push(selected);
             cart.appendChild(selected);
-            subtotal += unit.price;
+            subtotal += selected.price;
             let cost = subtotal.toFixed(2);
             console.log(cost);
         }
     })
 
     unit.setAttribute("id", `product ${i}`)
+    unit.setAttribute("class", "game"); 
     art.src = prodArr[i].imgsrc;
     add.textContent = "Add to cart";
     name.textContent = prodArr[i].name;
