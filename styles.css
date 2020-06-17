@@ -17,9 +17,17 @@ header {
 	flex-direction: row;
 }
 
+#cart .add-bttn, #cart p {
+	display: none;
+}
+
+#game-container .remove-bttn {
+	display: none;
+}
+
 img {
-	height: 30px;
-	width:30px;
+	height: 100px;
+	width:auto;
 }
 
 main
@@ -62,4 +70,8 @@ h1, h2
 {
 	margin: 0px;
 	font-size: 16pt;
+}
+
+.hide {
+	display: none;
 }
