@@ -22,32 +22,38 @@ prodArr.push(new Products('Give us money',['N/A'], 'There is no product, we just
 
 const cart = document.getElementById('cart')
 const shelf = document.getElementById('game-container')
+const beforeTax = document.getElementById("sub-total")
+const tax = document.getElementById("sales-tax")
+const afterTax = document.getElementById("total")
+let subtotal = 0;
+let inCart = [];
+let salesTax, total;
 
+function updateCost() {
+    salesTax = subtotal * .06;
+    total = subtotal + salesTax;
+}
+
+function cartID() {
+
+}
 
 for (let i = 0; i < prodArr.length; i++) {
     let unit = document.createElement("div");
     unit.price = prodArr[i].price;
     let name = document.createElement("h1");
     let description = document.createElement("p");
-    let price = document.createElement("p");
+    let price = document.createElement("h4");
     let art = document.createElement("img");
     let add = document.createElement("button");
-
-    add.addEventListener("click", ()=>{
-        if (inCart.length >= 10) {
-            alert("The cart is limited to 10 items.")
-        } else {
-            inCart.push(unit.id);
-            console.log(inCart);
-            subtotal += unit.price;
-            let cost = subtotal.toFixed(2);
-            console.log(cost);
-        }
-    })
+    let remove, cartID;
+    
 
     unit.setAttribute("id", `product ${i}`)
+    unit.setAttribute("class", "game"); 
     art.src = prodArr[i].imgsrc;
     add.textContent = "Add to cart";
+    add.setAttribute("class", "add-bttn");
     name.textContent = prodArr[i].name;
     description.textContent = prodArr[i].description;
     price.textContent = "$" + prodArr[i].price;
@@ -58,20 +64,51 @@ for (let i = 0; i < prodArr.length; i++) {
     unit.appendChild(description);
     unit.appendChild(price);
     unit.appendChild(add);
+
+    add.addEventListener("click", ()=>{
+        if (inCart.length >= 10) {
+            alert("The cart is limited to 10 items.")
+        } else {
+            let selected = unit.cloneNode(true);
+            selected.name = unit.name;
+            console.log(unit.name);
+            if (cartID === undefined) {
+                cartID = 0;
+                cartID++;
+            } else {
+                cartID++;
+            }
+            selected.setAttribute("id", cartID);
+            remove = document.createElement("button");
+            remove.textContent = "Remove from cart";
+            remove.setAttribute("class", "remove-bttn");
+            inCart.push(selected);
+            cart.appendChild(selected);
+            selected.appendChild(remove);
+            subtotal += unit.price;
+            let cost = subtotal.toFixed(2);
+            console.log(cost);
+            updateCost();
+            beforeTax.textContent = `Subtotal: $ ${subtotal.toFixed(2)}`;
+            tax.textContent = `Tax: $ ${salesTax.toFixed(2)}`;
+            afterTax.textContent = `Total: $ ${total.toFixed(2)}`;
+
+            remove.addEventListener("click", ()=>{
+                console.log(inCart);
+                console.log(selected.name)
+            })
+        }
+    })
+
 }
 
 
 
-let subtotal = 0;
-let inCart = [];
-let total = subtotal * 1.06;
 
-
-// psuedo code until later
 // printReceipt = () => {
-//     for (element of cart) {
-//         element.name printed;
-//         element.price printed;
+//     for (element of inCart) {
+//         console.log(element.name);
+//         console.log(element.price);
 //     }
 //     print total cost
 // }
