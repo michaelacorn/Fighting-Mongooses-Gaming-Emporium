@@ -1,4 +1,8 @@
-body, body*
+* {
+	font-family: "Montserrat";
+}
+
+body
 {
     display: flex;
 	
@@ -16,47 +20,45 @@ body, body*
 	box-sizing: border-box;
 }
 
-
-
-
-
-body
-{
-	
-	
-	
-    background: white;
-}
-
 header
 {
-	
-	
-	
-    background: lightcoral;
+	display: flex;
+	flex-flow: row-reverse nowrap;
+	align-items: flex-start;
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100px;
+	width: 100%;
+    background: orange;
 }
 
 main
 {
-    flex-flow: row nowrap;
+	display: flex;
+    flex-flow: column nowrap;
 	justify-content: flex-start;
-	align-items: flex-start;
-	align-content: flex-start;
-	
-	
-	
-	
-    background: lightblue;
+	align-items: center;
+	margin-top: 100px;
+	padding: 0 50px;
+	/* background: lightblue; */
+	height: 100%;
 }
 
-.game
+body {
+	background: lightblue;
+}
+
+#game-container
 {
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: space-between;
+	align-items: center;	
     height: 300px;
-    width: 300px;
-
-    
-
-    background: lightgreen;
+    width: 300px;	
+	/* margin: 25px; */
+    /* background: lightgreen; */
 }
 
 h1, h2
@@ -97,3 +99,48 @@ h1, h2
 	margin: 0px;
 	font-size: 16pt;
 }
+
+#cart {
+	background-color: lightgreen;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	/* flex-flow: column nowrap; */
+	height: auto;
+	width: auto;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	margin: 0 10px;
+}
+
+#cart img {
+	height: 75px;
+}
+
+#cart h1, h2 {
+	font-size: 10px
+}
+
+#cart p {
+	display: none;
+}
+
+#cart button {
+	display: none;
+}
+
+.game {
+	padding: 10px;
+}
+
+/* #checkout
+{
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: flex-start;
+	align-items: center;
+	background: khaki;
+	width: 100px;
+	height: 100px;
+} */
