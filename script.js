@@ -34,6 +34,10 @@ function updateCost() {
     total = subtotal + salesTax;
 }
 
+function cartID() {
+
+}
+
 for (let i = 0; i < prodArr.length; i++) {
     let unit = document.createElement("div");
     unit.price = prodArr[i].price;
@@ -42,16 +46,14 @@ for (let i = 0; i < prodArr.length; i++) {
     let price = document.createElement("h4");
     let art = document.createElement("img");
     let add = document.createElement("button");
-    let remove = document.createElement("button");
+    let remove, cartID;
+    
 
     unit.setAttribute("id", `product ${i}`)
     unit.setAttribute("class", "game"); 
-    remove.classList.add("hide");
     art.src = prodArr[i].imgsrc;
     add.textContent = "Add to cart";
     add.setAttribute("class", "add-bttn");
-    remove.textContent = "Remove from cart";
-    remove.setAttribute("class", "remove-bttn");
     name.textContent = prodArr[i].name;
     description.textContent = prodArr[i].description;
     price.textContent = "$" + prodArr[i].price;
@@ -68,6 +70,18 @@ for (let i = 0; i < prodArr.length; i++) {
             alert("The cart is limited to 10 items.")
         } else {
             let selected = unit.cloneNode(true);
+            selected.name = unit.name;
+            console.log(unit.name);
+            if (cartID === undefined) {
+                cartID = 0;
+                cartID++;
+            } else {
+                cartID++;
+            }
+            selected.setAttribute("id", cartID);
+            remove = document.createElement("button");
+            remove.textContent = "Remove from cart";
+            remove.setAttribute("class", "remove-bttn");
             inCart.push(selected);
             cart.appendChild(selected);
             selected.appendChild(remove);
@@ -78,6 +92,11 @@ for (let i = 0; i < prodArr.length; i++) {
             beforeTax.textContent = `Subtotal: $ ${subtotal.toFixed(2)}`;
             tax.textContent = `Tax: $ ${salesTax.toFixed(2)}`;
             afterTax.textContent = `Total: $ ${total.toFixed(2)}`;
+
+            remove.addEventListener("click", ()=>{
+                console.log(inCart);
+                console.log(selected.name)
+            })
         }
     })
 
