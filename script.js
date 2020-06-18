@@ -74,6 +74,7 @@ for (let i = 0; i < prodArr.length; i++) {
             alert("The cart is limited to 10 items.")
         } else {
             let selected = unit.cloneNode(true);
+            selected.price = unit.price;
             cartID(selected);
             remove = document.createElement("button");
             remove.textContent = "Remove from cart";
@@ -92,7 +93,11 @@ for (let i = 0; i < prodArr.length; i++) {
                 let target = inCart.findIndex((e)=> e === remove.parentElement);
                 inCart.splice(target, 1);
                 cart.removeChild(remove.parentElement);
+                subtotal -= remove.parentElement.price;
                 updateCost();
+                beforeTax.textContent = `Subtotal: $${subtotal.toFixed(2)}`;
+                tax.textContent = `Tax: $${salesTax.toFixed(2)}`;
+                afterTax.textContent = `Total: $${total.toFixed(2)}`;
             })
         }
     })
