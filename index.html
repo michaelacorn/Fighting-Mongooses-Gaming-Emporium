@@ -20,8 +20,27 @@
         </header>
         
         <article id="checkOut"><!--CHECKOUT SCREEN-->
-
+            <div id="card-payment">
+                <form>
+                    <label for="card-number">Card Number</label>
+                    <input type="text" minlength="16" maxlength="16" id="card-number">
+                    <label for="expiration">Expiration</label>
+                    <input type="date" id="expiration">
+                    <label for="cvv">CVV</label>
+                    <input type="text" minlength="3" maxlength="3" id="cvv">
+                    <input type="submit" id="card-sub">
+                </form>
+            </div>
+            <div id="cash-payment">
+                <form>
+                    <label for="cash">How much are you paying?</label>
+                    <input type="number" id="cash">
+                    <input type="submit" id="cash-sub">
+                </form>
+            </div>
         </article>
+
+        <article id="receipt"></article>
 
         <main>
             <!--<div class="logo">

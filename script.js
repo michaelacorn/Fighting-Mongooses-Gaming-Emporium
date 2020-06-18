@@ -104,13 +104,7 @@ for (let i = 0; i < prodArr.length; i++) {
 
 }
 
+const cardSubmit = document.getElementById("card-sub");
+const cashSubmit = document.getElementById("cash-sub");
+const receipt = document.getElementById("receipt");
 
-
-
-// printReceipt = () => {
-//     for (element of inCart) {
-//         console.log(element.name);
-//         console.log(element.price);
-//     }
-//     print total cost
-// }
