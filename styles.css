@@ -2,9 +2,43 @@
 	font-family: "Montserrat";
 }
 
+
+button {
+    display: inline-block;
+	border: none;
+	border-radius: 10px;
+    padding: 1rem 2rem;
+    margin: 0;
+    text-decoration: none;
+    background: #0069ed;
+    color: #ffffff;
+    font-family: sans-serif;
+    font-size: 15px;
+    cursor: pointer;
+    text-align: center;
+    transition: background 250ms ease-in-out, 
+                transform 150ms ease;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+button:hover,
+button:focus {
+    background: #0053ba;
+}
+
+button:focus {
+    outline: 1px solid #fff;
+    outline-offset: -4px;
+}
+
+button:active {
+    transform: scale(0.99);
+}
+
 body
 {
-	margin-top: 100px;
+	
 	padding: 0px;
 	box-sizing: border-box;
 	
@@ -15,17 +49,11 @@ header {
 	display: flex;
 	flex-flow: row nowrap;
 	justify-content: space-between;
-	align-items: flex-start;
 
-	position: fixed;
-	top: 0;
-	left: 0;
 	
-	height: 100px;
-	width: 100%;
+	max-height: 75px;
 
     background: lightcoral;
-
 }
 
 #cart {
@@ -41,22 +69,30 @@ header {
 	display: none;
 }
 
-img {
+.game img {
 	height: 225px;
 	width:auto;
 }
 
+article
+{
+	display: none;
+
+
+	width: 100%;
+	height: 1000px;
+
+	background: khaki;
+}
+
+
 main
 {
-	padding-top: 70px;
+	padding-top: 40px;
 	display: flex;
     flex-flow: row wrap;
 	justify-content: space-around;
 	align-items: flex-end;
-	
-	
-	
-	
     background: #EBEBEB;
 }
 
@@ -88,11 +124,10 @@ main
 	align-items: center;
     height: 200px;
     width: 170px;
-	margin: 5px;
-	border-bottom: 0px solid black;
+	margin: 0px;
+	border-left: 2px solid black;
 	text-align: center;
 	padding: 10px;
-	background: lightgreen;
 }
 
 .gameCart img
@@ -100,7 +135,10 @@ main
 	height: 100px;
 }
 
-
+.gameCart h1
+{
+	font-size: 16px;
+}
 
 #done:hover + #cart
 {
@@ -121,7 +159,7 @@ img
 h1, h2
 {
 	margin: 0px;
-	font-size: 16pt;
+	font-size: 18pt;
 }
 
 .hide {
