@@ -107,4 +107,9 @@ for (let i = 0; i < prodArr.length; i++) {
 const cardSubmit = document.getElementById("card-sub");
 const cashSubmit = document.getElementById("cash-sub");
 const receipt = document.getElementById("receipt");
+const checkOut = document.getElementById("check-out");
+const checkScreen = document.getElementById("check-out-screen");
 
+checkOut.addEventListener("click", ()=>{
+    checkScreen.style.display = "block";
+})
