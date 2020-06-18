@@ -82,16 +82,17 @@ for (let i = 0; i < prodArr.length; i++) {
             cart.appendChild(selected);
             selected.appendChild(remove);
             subtotal += unit.price;
-            let cost = subtotal.toFixed(2);
-            console.log(cost);
             updateCost();
-            beforeTax.textContent = `Subtotal: $ ${subtotal.toFixed(2)}`;
-            tax.textContent = `Tax: $ ${salesTax.toFixed(2)}`;
-            afterTax.textContent = `Total: $ ${total.toFixed(2)}`;
+            beforeTax.textContent = `Subtotal: $${subtotal.toFixed(2)}`;
+            tax.textContent = `Tax: $${salesTax.toFixed(2)}`;
+            afterTax.textContent = `Total: $${total.toFixed(2)}`;
 
             remove.addEventListener("click", (event)=>{
-                
-                console.log(target);
+                let remove = event.target;
+                let target = inCart.findIndex((e)=> e === remove.parentElement);
+                inCart.splice(target, 1);
+                cart.removeChild(remove.parentElement);
+                updateCost();
             })
         }
     })
