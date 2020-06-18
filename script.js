@@ -26,6 +26,7 @@ const beforeTax = document.getElementById("sub-total")
 const tax = document.getElementById("sales-tax")
 const afterTax = document.getElementById("total")
 let subtotal = 0;
+let idNum = 0;
 let inCart = [];
 let salesTax, total;
 
@@ -34,8 +35,11 @@ function updateCost() {
     total = subtotal + salesTax;
 }
 
-function cartID() {
-
+function cartID(cartItem) {
+    cartItem.name = `item-${idNum}`
+    console.log(cartItem.name);
+    cartItem.setAttribute("id", `cart-${idNum}`)
+    idNum++;
 }
 
 for (let i = 0; i < prodArr.length; i++) {
@@ -46,7 +50,7 @@ for (let i = 0; i < prodArr.length; i++) {
     let price = document.createElement("h4");
     let art = document.createElement("img");
     let add = document.createElement("button");
-    let remove, cartID;
+    let remove;
     
 
     unit.setAttribute("id", `product ${i}`)
@@ -70,15 +74,8 @@ for (let i = 0; i < prodArr.length; i++) {
             alert("The cart is limited to 10 items.")
         } else {
             let selected = unit.cloneNode(true);
-            selected.name = unit.name;
-            console.log(unit.name);
-            if (cartID === undefined) {
-                cartID = 0;
-                cartID++;
-            } else {
-                cartID++;
-            }
-            selected.setAttribute("id", cartID);
+            selected.price = unit.price;
+            cartID(selected);
             remove = document.createElement("button");
             remove.textContent = "Remove from cart";
             remove.setAttribute("class", "remove-bttn");
@@ -87,16 +84,21 @@ for (let i = 0; i < prodArr.length; i++) {
             cart.appendChild(selected);
             selected.appendChild(remove);
             subtotal += unit.price;
-            let cost = subtotal.toFixed(2);
-            console.log(cost);
             updateCost();
-            beforeTax.textContent = `Subtotal: $ ${subtotal.toFixed(2)}`;
-            tax.textContent = `Tax: $ ${salesTax.toFixed(2)}`;
-            afterTax.textContent = `Total: $ ${total.toFixed(2)}`;
+            beforeTax.textContent = `Subtotal: $${subtotal.toFixed(2)}`;
+            tax.textContent = `Tax: $${salesTax.toFixed(2)}`;
+            afterTax.textContent = `Total: $${total.toFixed(2)}`;
 
-            remove.addEventListener("click", ()=>{
-                console.log(inCart);
-                console.log(selected.name)
+            remove.addEventListener("click", (event)=>{
+                let remove = event.target;
+                let target = inCart.findIndex((e)=> e === remove.parentElement);
+                inCart.splice(target, 1);
+                cart.removeChild(remove.parentElement);
+                subtotal -= remove.parentElement.price;
+                updateCost();
+                beforeTax.textContent = `Subtotal: $${subtotal.toFixed(2)}`;
+                tax.textContent = `Tax: $${salesTax.toFixed(2)}`;
+                afterTax.textContent = `Total: $${total.toFixed(2)}`;
             })
         }
     })
