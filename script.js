@@ -107,4 +107,25 @@ for (let i = 0; i < prodArr.length; i++) {
 const cardSubmit = document.getElementById("card-sub");
 const cashSubmit = document.getElementById("cash-sub");
 const receipt = document.getElementById("receipt");
+const checkOut = document.getElementById("check-out");
+const checkScreen = document.getElementById("check-out-screen");
+const payCash = document.getElementById("pay-cash");
+const payCard = document.getElementById("pay-card");
+const cashPayment = document.getElementById("cash-payment");
+const cardPayment = document.getElementById("card-payment");
 
+checkOut.addEventListener("click", ()=>{
+    checkScreen.style.display = "block";
+})
+
+payCash.addEventListener("click", ()=>{
+    cashPayment.style.display = "block";
+    payCash.style.display = "none";
+    payCard.style.display = "none";
+})
+
+payCard.addEventListener("click", ()=>{
+    cardPayment.style.display = "block";
+    payCash.style.display = "none";
+    payCard.style.display = "none";
+})
