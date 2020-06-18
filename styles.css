@@ -1,6 +1,10 @@
+* {
+	font-family: "Montserrat";
+}
+
 body
 {
-	margin: 0px;
+	margin-top: 100px;
 	padding: 0px;
 	box-sizing: border-box;
 	
@@ -8,13 +12,25 @@ body
 }
 
 header {
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-between;
+	align-items: flex-start;
+
+	position: fixed;
+	top: 0;
+	left: 0;
+	
+	height: 100px;
+	width: 100%;
+
     background: lightcoral;
 
 }
 
 #cart {
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 }
 
 #cart .add-bttn, #cart p {
@@ -26,12 +42,13 @@ header {
 }
 
 img {
-	height: 100px;
+	height: 225px;
 	width:auto;
 }
 
 main
 {
+	padding-top: 70px;
 	display: flex;
     flex-flow: row wrap;
 	justify-content: space-around;
@@ -40,24 +57,59 @@ main
 	
 	
 	
-    background: lightblue;
+    background: #EBEBEB;
+}
+
+.game, *
+{
+	margin: 0;
+	padding: 0;
 }
 
 .game
 {
 	display: flex;
 	flex-flow: column nowrap;
-	justify-content: space-between;
+	justify-content: space-around;
 	align-items: center;
-	
-    height: 300px;
+    height: 450px;
     width: 300px;
-	
 	margin: 25px;
+	border-bottom: 2px solid grey;
+	text-align: center;
+	padding: 10px;
+}
 
-    
+.gameCart
+{
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: space-around;
+	align-items: center;
+    height: 200px;
+    width: 170px;
+	margin: 5px;
+	border-bottom: 0px solid black;
+	text-align: center;
+	padding: 10px;
+	background: lightgreen;
+}
 
-    background: lightgreen;
+.gameCart img
+{
+	height: 100px;
+}
+
+
+
+#done:hover + #cart
+{
+	display: flex;
+}
+
+#cart:hover
+{
+	display: flex;
 }
 
 img
