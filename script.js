@@ -9,7 +9,7 @@ class Products {
 }
 let prodArr = [];
 
-prodArr.push(new Products('Cyberpunk 2077', ['PC', 'Xbox One', 'PS4'], 'The Witcher, but like in the future.', 59.99, 'images/Cyberpunk2077_XBone.jpg'));
+prodArr.push(new Products('Cyberpunk 2077', ['PC', 'Xbox One', 'PS4'], 'The Witcher, but like in the future. Keanu Reeves is in it.', 59.99, 'images/Cyberpunk2077_XBone.jpg'));
 prodArr.push(new Products('Last Of Us: Part II', ['PS4'], 'An action survival game where zombies and humans can be bad', 59.99, 'images/LOU2_PS4.jpg'));
 prodArr.push(new Products('Overwatch',['PC', 'Xbox One', 'PS4'], 'THE class based shooter', 19.99, 'images/OW_PC.jpg'));
 prodArr.push(new Products('Jet Set Radio Future',['Xbox'], 'An old game about roller skating and graffiti', 32.99, 'images/JSRF_Xbox.jpg'));
@@ -82,6 +82,7 @@ for (let i = 0; i < prodArr.length; i++) {
             remove = document.createElement("button");
             remove.textContent = "Remove from cart";
             remove.setAttribute("class", "remove-bttn");
+            selected.setAttribute("class", "gameCart"); 
             inCart.push(selected);
             cart.appendChild(selected);
             selected.appendChild(remove);
