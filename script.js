@@ -104,9 +104,6 @@ for (let i = 0; i < prodArr.length; i++) {
 
 }
 
-let cash = document.getElementById("payment");
-let change = total - cash.value;
-
 
 
 
