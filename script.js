@@ -86,6 +86,7 @@ for (let i = 0; i < prodArr.length; i++) {
         } else {
             let selected = unit.cloneNode(true);
             selected.price = unit.price;
+            selected.setAttribute("class", "gameCart");
             cartID(selected);
             remove = document.createElement("button");
             remove.textContent = "Remove from cart";
@@ -140,18 +141,18 @@ addToReceipt = (change) => {
 }
 
 checkOut.addEventListener("click", ()=>{
-    checkScreen.style.display = "block";
+    checkScreen.style.display = "flex";
     checkOut.style.display = "none";
 })
 
 payCash.addEventListener("click", ()=>{
-    cashPayment.style.display = "block";
+    cashPayment.style.display = "flex";
     payCash.style.display = "none";
     payCard.style.display = "none";
 })
 
 payCard.addEventListener("click", ()=>{
-    cardPayment.style.display = "block";
+    cardPayment.style.display = "flex";
     payCash.style.display = "none";
     payCard.style.display = "none";
 })
