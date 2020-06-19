@@ -35,6 +35,12 @@ function updateCost() {
     total = subtotal + salesTax;
 }
 
+function displayCost() {
+    beforeTax.textContent = `Subtotal: $${subtotal.toFixed(2)}`;
+    tax.textContent = `Tax: $${salesTax.toFixed(2)}`;
+    afterTax.textContent = `Total: $${total.toFixed(2)}`;
+}
+
 function cartID(cartItem) {
     cartItem.name = `item-${idNum}`
     console.log(cartItem.name);
@@ -50,13 +56,16 @@ for (let i = 0; i < prodArr.length; i++) {
     let price = document.createElement("h4");
     let art = document.createElement("img");
     let add = document.createElement("button");
+    let cartUI = document.createElement("img");
+    let addText = document.createElement("span");
     let remove;
     
 
     unit.setAttribute("id", `product ${i}`)
     unit.setAttribute("class", "game"); 
     art.src = prodArr[i].imgsrc;
-    add.textContent = "Add to cart";
+    cartUI.src = "images/shoppingCart.png";
+    addText.textContent = "Add to cart";
     add.setAttribute("class", "add-bttn");
     name.textContent = prodArr[i].name;
     description.textContent = prodArr[i].description;
@@ -68,6 +77,8 @@ for (let i = 0; i < prodArr.length; i++) {
     unit.appendChild(description);
     unit.appendChild(price);
     unit.appendChild(add);
+    add.appendChild(cartUI);
+    add.appendChild(addText);
 
     add.addEventListener("click", ()=>{
         if (inCart.length >= 10) {
@@ -75,6 +86,7 @@ for (let i = 0; i < prodArr.length; i++) {
         } else {
             let selected = unit.cloneNode(true);
             selected.price = unit.price;
+            selected.setAttribute("class", "gameCart");
             cartID(selected);
             remove = document.createElement("button");
             remove.textContent = "Remove from cart";
@@ -84,9 +96,7 @@ for (let i = 0; i < prodArr.length; i++) {
             selected.appendChild(remove);
             subtotal += unit.price;
             updateCost();
-            beforeTax.textContent = `Subtotal: $${subtotal.toFixed(2)}`;
-            tax.textContent = `Tax: $${salesTax.toFixed(2)}`;
-            afterTax.textContent = `Total: $${total.toFixed(2)}`;
+            displayCost();
 
             remove.addEventListener("click", (event)=>{
                 let remove = event.target;
@@ -95,9 +105,7 @@ for (let i = 0; i < prodArr.length; i++) {
                 cart.removeChild(remove.parentElement);
                 subtotal -= remove.parentElement.price;
                 updateCost();
-                beforeTax.textContent = `Subtotal: $${subtotal.toFixed(2)}`;
-                tax.textContent = `Tax: $${salesTax.toFixed(2)}`;
-                afterTax.textContent = `Total: $${total.toFixed(2)}`;
+                displayCost();
             })
         }
     })
@@ -114,18 +122,52 @@ const payCard = document.getElementById("pay-card");
 const cashPayment = document.getElementById("cash-payment");
 const cardPayment = document.getElementById("card-payment");
 
+addToReceipt = (change) => {
+    checkScreen.style.display = "none";
+    receipt.style.display = "block";
+    for (element of inCart) {
+        receipt.appendChild(element);
+        element.classList.add("hide-art");
+        element.classList.add("hide-descript");
+        element.classList.add("hide-bttn");
+    }
+    inCart = [];
+    updateCost();
+    if (change !== null) {
+        let cashBack = document.createElement("h4");
+        cashBack.textContent = `Change: $${change}`;
+        receipt.appendChild(cashBack);
+    }
+}
+
 checkOut.addEventListener("click", ()=>{
-    checkScreen.style.display = "block";
+    checkScreen.style.display = "flex";
+    checkOut.style.display = "none";
 })
 
 payCash.addEventListener("click", ()=>{
-    cashPayment.style.display = "block";
+    cashPayment.style.display = "flex";
     payCash.style.display = "none";
     payCard.style.display = "none";
 })
 
 payCard.addEventListener("click", ()=>{
-    cardPayment.style.display = "block";
+    cardPayment.style.display = "flex";
     payCash.style.display = "none";
     payCard.style.display = "none";
+})
+
+cashSubmit.addEventListener("click", (e)=>{
+    e.preventDefault();
+    let amountTendered = document.getElementById("cash").value;
+    if (amountTendered >= total) {
+        let change = amountTendered - total;
+        addToReceipt(change.toFixed(2));
+    } else {
+        alert("You have paid less than the total");
+    }
+})
+
+cardSubmit.addEventListener("click", (e)=>{
+    e.preventDefault();
 })
