@@ -15,10 +15,12 @@ button {
     font-size: 15px;
     cursor: pointer;
     text-align: center;
-    transition: background 250ms ease-in-out, 
-                transform 150ms ease;
+	transition: background 250ms ease-in-out;
+	transform: 150ms ease;
     -webkit-appearance: none;
-    -moz-appearance: none;
+	-moz-appearance: none;
+	height: 50px;
+	width: 50px;
 }
 
 button:hover,
@@ -48,13 +50,21 @@ header {
 	display: flex;
 	flex-flow: row nowrap;
 	justify-content: space-between;
+	align-items: center;
 
-	
+	padding: 0 5px;
+
 	max-height: 85px;
+	min-height: 85px;
 
-	background: #F3B4A5;
+	background: lightgrey;
 	
 	border-bottom: 2px solid grey ;
+}
+
+.price-info
+{
+	width: 192px;
 }
 
 #cart .add-bttn, #cart p {
@@ -128,15 +138,24 @@ main
 	padding: 10px;
 }
 
+#checkIT
+{
+	width: 192px;
+}
+
 #cart {
 	display: flex;
 	flex-direction: column;
 
 	height: auto;
-	margin-top: 20px;
+	margin-top: 87px;
 	opacity: 25%;
 	border-left: 2px solid #EBEBEB;
 	border-bottom: 2px solid #EBEBEB;
+	
+	position: absolute;
+	top: 0;
+	right: 0;
 	
 	transition: 300ms;
 }
@@ -153,7 +172,6 @@ main
 #check-out
 {
 	width: 192px;
-	margin-top: 18px;
 }
 
 .gameCart
@@ -207,10 +225,18 @@ h1, h2
 	display: none;
 }
 
+#add-img {
+	height: 25px;
+	width: 25px;
+} 
 
+/* button img {
+	height: 20px;
+	width: 20px;
+} */
 
-@media only screen and (max-width: 768px) {
+/* @media only screen and (max-width: 768px) {
 	body {
-	
+		background: lightcoral;
 	}
-}
+} */

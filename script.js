@@ -63,9 +63,10 @@ for (let i = 0; i < prodArr.length; i++) {
 
     unit.setAttribute("id", `product ${i}`)
     unit.setAttribute("class", "game"); 
+    cartUI.setAttribute("id", "add-img");
     art.src = prodArr[i].imgsrc;
-    cartUI.src = "images/shoppingCart.png";
-    addText.textContent = "Add to cart";
+    cartUI.src = "images/cartUIAdd.png";
+    // addText.textContent = "Add to cart";
     add.setAttribute("class", "add-bttn");
     name.textContent = prodArr[i].name;
     description.textContent = prodArr[i].description;
@@ -109,8 +110,13 @@ for (let i = 0; i < prodArr.length; i++) {
             })
         }
     })
-
 }
+
+let checkoutButton = document.getElementById("check-out");
+let checkImage = document.createElement("img");
+checkImage.src = "images/cartUI.png";
+checkoutButton.appendChild(checkImage);
+
 
 const cardSubmit = document.getElementById("card-sub");
 const cashSubmit = document.getElementById("cash-sub");
