@@ -10,15 +10,18 @@ class Products {
 let prodArr = [];
 
 prodArr.push(new Products('Cyberpunk 2077', ['PC', 'Xbox One', 'PS4'], 'The Witcher, but like in the future.', 59.99, 'images/Cyberpunk2077_XBone.jpg'));
-prodArr.push(new Products('Last Of Us: Part II', ['PS4'], 'An action survival game where zombies and humans can be bad', 59.99, 'images/LOU2_PS4.jpg'));
-prodArr.push(new Products('Overwatch',['PC', 'Xbox One', 'PS4'], 'THE class based shooter', 19.99, 'images/OW_PC.jpg'));
-prodArr.push(new Products('Jet Set Radio Future',['Xbox'], 'An old game about roller skating and graffiti', 32.99, 'images/JSRF_Xbox.jpg'));
-prodArr.push(new Products('E.T', ['Atari'], 'The game was put in the landfill for a reason', 17.99, 'images/ET_2600.jpg'));
-prodArr.push(new Products('Resident Evil',['PC', 'Xbox One', 'PS4'], 'A classic remastered with new features and better graphics', 19.99,'images/RE_PS4.jpg'));
-prodArr.push(new Products('Starcraft', ['PC'], 'Screw your zerg rush', 9.99, 'images/Starcraft_PC.jpg'));
-prodArr.push(new Products('Superman 64', ['Nintendo 64'], 'It\'s really bad and really expensive', 399.94, 'images/Superman64.jpg'));
-prodArr.push(new Products('Valorant', ['PC'], 'Class based shooter in the style of CS:GO', 19.99, 'images/Valorant_PC.png'));
+prodArr.push(new Products('Last Of Us: Part II', ['PS4'], 'An action survival game where zombies and humans can be bad.', 59.99, 'images/LOU2_PS4.jpg'));
+prodArr.push(new Products('Overwatch',['PC', 'Xbox One', 'PS4'], 'Buff Mercy. Nerf Bastion. Mei is Satan.', 19.99, 'images/OW_PC.jpg'));
+prodArr.push(new Products('Jet Set Radio Future',['Xbox'], 'An old game about roller skating and graffiti.', 32.99, 'images/JSRF_Xbox.jpg'));
+prodArr.push(new Products('E.T', ['Atari'], 'The game was put in the landfill for a reason.', 17.99, 'images/ET_2600.jpg'));
+prodArr.push(new Products('Resident Evil',['PC', 'Xbox One', 'PS4'], 'A classic remastered with new features and better graphics.', 19.99,'images/RE_PS4.jpg'));
+prodArr.push(new Products('Starcraft', ['PC'], 'Screw your zerg rush.', 9.99, 'images/Starcraft_PC.jpg'));
+prodArr.push(new Products('Superman 64', ['Nintendo 64'], 'It\'s really bad and really expensive.', 399.94, 'images/Superman64.jpg'));
+prodArr.push(new Products('Valorant', ['PC'], 'Class based shooter in the style of CS:GO.', 19.99, 'images/Valorant_PC.png'));
+prodArr.push(new Products('Remember Me',['Xbox', 'PC', 'PS3'], 'We\'re running out of games here.', 5, 'images/rememberME.jpg'));
+prodArr.push(new Products('Doki Doki Literature Club',['PC'], 'Just Monika. Just Monika. Just Monika.' , 5, 'images/ddlc.png'));
 prodArr.push(new Products('Give us money',['N/A'], 'There is no product, we just want your money. Feel free to buy this more than once. :)', 5, 'images/Gib_Money.png'));
+
 
 const cart = document.getElementById('cart')
 const shelf = document.getElementById('game-container')
@@ -44,7 +47,8 @@ function displayCost() {
 function cartID(cartItem) {
     cartItem.name = `item-${idNum}`
     console.log(cartItem.name);
-    cartItem.setAttribute("id", `cart-${idNum}`)
+    cartItem.setAttribute("id", `cart-${idNum}`);
+    //cartItem.setAttribute("class", "allCart");
     idNum++;
 }
 
@@ -130,7 +134,7 @@ const cardPayment = document.getElementById("card-payment");
 
 addToReceipt = (change) => {
     checkScreen.style.display = "none";
-    receipt.style.display = "block";
+    receipt.style.display = "flex";
     for (element of inCart) {
         receipt.appendChild(element);
         element.classList.add("hide-art");
@@ -147,8 +151,11 @@ addToReceipt = (change) => {
 }
 
 checkOut.addEventListener("click", ()=>{
+    if (inCart.length === 0) {
+    } else {
     checkScreen.style.display = "flex";
     checkOut.style.display = "none";
+    }
 })
 
 payCash.addEventListener("click", ()=>{
