@@ -1,3 +1,7 @@
+@media only screen and (max-width: 768px) {
+}
+
+
 * {
 	font-family: "Montserrat";
 }
@@ -94,6 +98,19 @@ article
 	background: khaki;
 	border-bottom: 2px solid grey;
 }
+
+#cashCred
+{
+	display: flex;
+	flex-flow: row nowrap;
+}
+
+.cashCredBut
+{
+	height: 100px;
+	width: 300px;
+}
+
 
 #card-payment, #cash-payment{
 	display: none;
@@ -232,18 +249,5 @@ h1, h2
 	width: 50px;
 } 
 
-/* button img {
-	height: 20px;
-	width: 20px;
-} */
+}
 
-/* @media only screen and (max-width: 768px) {
-	body {
-		background: lightcoral;
-	}
-
-	header
-	{
-		background: lightcoral;
-	}
-} */
