@@ -139,7 +139,7 @@ addToReceipt = (change) => {
     }
     inCart = [];
     updateCost();
-    if (change !== null) {
+    if (change !== undefined) {
         let cashBack = document.createElement("h4");
         cashBack.textContent = `Change: $${change}`;
         receipt.appendChild(cashBack);
@@ -176,4 +176,5 @@ cashSubmit.addEventListener("click", (e)=>{
 
 cardSubmit.addEventListener("click", (e)=>{
     e.preventDefault();
+    addToReceipt();
 })
