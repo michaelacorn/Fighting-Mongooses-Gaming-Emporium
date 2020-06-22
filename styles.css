@@ -6,6 +6,13 @@
 	display: none;
 }
 
+.small-logo {
+	display: flex;
+	padding-right: 55px;
+	padding-left: 10px;
+	height: 100px;
+}
+
 a:link {
 	text-decoration: none;
   }
@@ -21,14 +28,23 @@ a:hover{
 ul {
 	display: flex;
 	list-style-type: none;
+	flex-direction: column;
+	justify-content: space-between;
+	padding: 10px;
 }
 
 li {
 	display: flex;
+	padding: 2px;
 }
 
 footer {
 	padding: 30px;
+	border-top: 2px solid grey;
+	background: lightgrey;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 }
 button {
 	display: flex;
@@ -88,9 +104,12 @@ header {
 
 .price-info
 {
-	width: 192px;
+	width: 130px;
 	border-right: 2px solid black;
+	
 }
+
+
 
 #cart .add-bttn, #cart p {
 	display: none;
@@ -205,7 +224,8 @@ main
 
 #checkIT
 {
-	width: 192px;
+	width: 100px;
+	padding-right: 10px;
 }
 
 #cart {
@@ -233,7 +253,9 @@ main
 
 #check-out
 {
-	width: 192px;
+	width: 100px;
+	margin: 0;
+
 }
 
 .gameCart
@@ -337,6 +359,21 @@ h1, h2
 	}
 
 	.full-logo {
+		display: inline;
+	}
+
+	.small-logo {
 		display: none;
 	}
+
+
+
+	* {
+		font-family: "Montserrat";
+	}
+
+	h3 {
+		font-size: 20px;
+	}
+	
 }
