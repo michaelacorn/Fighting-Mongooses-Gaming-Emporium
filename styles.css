@@ -2,6 +2,10 @@
 	font-family: "Montserrat";
 }
 
+.full-logo {
+	display: none;
+}
+
 a:link {
 	text-decoration: none;
   }
@@ -290,6 +294,7 @@ h1, h2
 	width: 50px;
 }
 
+
 @media only screen and (min-width: 768px)
 {
 	#game-container
@@ -331,4 +336,7 @@ h1, h2
 
 	}
 
+	.full-logo {
+		display: none;
+	}
 }
